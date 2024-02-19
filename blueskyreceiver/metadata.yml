@@ -1,0 +1,7 @@
+type: bluesky
+
+status:
+  class: receiver
+  stability:
+    experimental: [logs, metrics]
+  distributions: [contrib]

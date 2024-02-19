@@ -1,0 +1,21 @@
+receivers:
+  blueskyreceiver:
+
+processors:
+  batch:
+  groupbyattrs:
+    keys:
+      - app.honeycomb_api_key
+
+exporters:
+  otlp:
+    endpoint: "api.honeycomb.io:443"
+  debug:
+    verbosity: detailed
+
+service:
+  pipelines:
+    logs:
+      receivers: [blueskyreceiver]
+      processors: [batch]
+      exporters: [otlp]
